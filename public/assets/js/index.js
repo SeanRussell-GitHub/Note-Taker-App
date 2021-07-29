@@ -1,3 +1,4 @@
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -26,7 +27,7 @@ const hide = (elem) => {
 let activeNote = {};
 
 const getNotes = () =>
-  fetch('/api/notes', {
+  fetch('file:///C:/Users/email/Homework/Note-Taker-App/public/notes.HTML', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
