@@ -27,7 +27,7 @@ const hide = (elem) => {
 let activeNote = {};
 
 const getNotes = () =>
-  fetch('file:///C:/Users/email/Homework/Note-Taker-App/public/notes.HTML', {
+  fetch('/api/notes', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -52,6 +52,7 @@ const deleteNote = (id) =>
   });
 
 const renderActiveNote = () => {
+  console.log('inside Render Active Note');
   hide(saveNoteBtn);
 
   if (activeNote.id) {
@@ -103,12 +104,13 @@ const handleNoteView = (e) => {
   renderActiveNote();
 };
 
-// Sets the activeNote to and empty object and allows the user to enter a new note
+// Sets the activeNote to an empty object and allows the user to enter a new note
 const handleNewNoteView = (e) => {
   activeNote = {};
   renderActiveNote();
 };
 
+// shows or hides the save and new note buttons 
 const handleRenderSaveBtn = () => {
   if (!noteTitle.value.trim() || !noteText.value.trim()) {
     hide(saveNoteBtn);
