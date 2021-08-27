@@ -6,7 +6,7 @@ const uuid = () => {
 }
 
 // Set up Express
-const PORT = process.env.PORT || 30089;
+const PORT = process.env.PORT || 80;
 const app = express();
 
 // Sets up the middleware to handle data parsing
