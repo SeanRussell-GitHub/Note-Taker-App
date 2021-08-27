@@ -6,6 +6,5 @@ const fs = require('fs');
 const app = express();
 
 module.exports = {
-    router,
-    
+    router
 }
