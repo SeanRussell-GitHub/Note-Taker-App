@@ -49,7 +49,13 @@ const deleteNote = (id) =>
     headers: {
       'Content-Type': 'application/json',
     },
-  });
+    body: null,
+  })
+  .then(res => res.json())
+  // .then(data => {
+  //   // Do some stuff...
+  // })
+  .catch(err => console.log(err));
 
 const renderActiveNote = () => {
   console.log('inside Render Active Note');
