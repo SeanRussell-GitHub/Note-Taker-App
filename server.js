@@ -15,8 +15,10 @@ app.use(express.json());
 app.use(express.static('public'));
 
 app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname + '/notes.html'));
+  // res.sendFile(path.join(__dirname + '/public/notes.html'));
+  res.sendFile('public/notes.html' , { root : __dirname});
 });
+
 
 app.get('/api/notes', (req, res) => {
   res.json(JSON.parse(fs.readFileSync(__dirname + '/db/db.json', (err, data) => {
@@ -61,7 +63,8 @@ app.delete('/api/notes/:id', (req, res) => {
 });
 
 app.get('/*', (req,res) =>
-  res.sendFile(path.join(__dirname, '/index.html')));
+  // res.sendFile(path.join(__dirname, '/public/index.html')));
+  res.sendFile('public/index.html' , { root : __dirname}));
 
 app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${PORT}`);
