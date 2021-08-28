@@ -1,4 +1,5 @@
 const express = require('express');
+const app = express();
 const path = require('path');
 const fs = require('fs');
 const uuid = () => {
@@ -7,7 +8,6 @@ const uuid = () => {
 
 // Set up Express
 const PORT = process.env.PORT || 8080;
-const app = express();
 
 // Sets up the middleware to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname + '/public/notes.html'));
+  res.sendFile(path.join(__dirname, '/public/notes.html'));
 });
 
 app.get('/api/notes', (req, res) => {
@@ -61,7 +61,7 @@ app.delete('/api/notes/:id', (req, res) => {
 });
 
 app.get('/*', (req,res) =>
-  res.sendFile(path.join(__dirname + '/public/index.html')));
+  res.sendFile(path.join(__dirname, '/public/index.html')));
 
 app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${PORT}`);
