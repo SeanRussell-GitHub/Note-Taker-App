@@ -6,7 +6,7 @@ const uuid = () => {
 }
 
 // Set up Express
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 8080;
 const app = express();
 
 // Sets up the middleware to handle data parsing
@@ -60,7 +60,7 @@ app.delete('/api/notes/:id', (req, res) => {
   res.send("Success!")
 });
 
-app.get('./*', (req,res) =>
+app.get('/*', (req,res) =>
   res.sendFile(path.join(__dirname, '/public/index.html')));
 
 app.listen(PORT, () => {
