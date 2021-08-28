@@ -19,7 +19,7 @@ app.get('/notes', (req, res) => {
 });
 
 app.get('/api/notes', (req, res) => {
-  res.json(JSON.parse(fs.readFileSync(__dirname + '/db/db.json', (err, data) => {
+  res.json(JSON.parse(fs.readFileSync('/db/db.json', (err, data) => {
     if(err){
       throw new Error(err)
     } else {
@@ -30,7 +30,7 @@ app.get('/api/notes', (req, res) => {
 app.post('/api/notes', (req, res) => {
   const postRequest = req.body;
   postRequest.id = uuid();
-  const dbArray = (JSON.parse(fs.readFileSync(__dirname + '/db/db.json', (err, data) => {
+  const dbArray = (JSON.parse(fs.readFileSync('/db/db.json', (err, data) => {
     if(err){
       throw new Error(err)
     } else {
@@ -38,13 +38,13 @@ app.post('/api/notes', (req, res) => {
     }
   })));
   dbArray.push(postRequest);
-  fs.writeFileSync(__dirname + '/db/db.json', JSON.stringify(dbArray), (err) => {throw new Error(err)})
+  fs.writeFileSync('/db/db.json', JSON.stringify(dbArray), (err) => {throw new Error(err)})
   res.send("Success!")
 });
 
 app.delete('/api/notes/:id', (req, res) => {
   const deleteId = req.params.id;
-  const dbArray = (JSON.parse(fs.readFileSync(__dirname + '/db/db.json', (err, data) => {
+  const dbArray = (JSON.parse(fs.readFileSync('/db/db.json', (err, data) => {
     if(err){
       throw new Error(err)
     } else {
@@ -55,13 +55,13 @@ app.delete('/api/notes/:id', (req, res) => {
       dbArray.splice(i,1);
     }
   }
-  fs.writeFileSync(__dirname + '/db/db.json', JSON.stringify(dbArray), (err) => {
+  fs.writeFileSync('/db/db.json', JSON.stringify(dbArray), (err) => {
     throw new Error(err)})
   res.send("Success!")
 });
 
 app.get('/*', (req,res) =>
-  res.sendFile(path.join(__dirname, '/public/index.html')));
+  res.sendFile(path.join('/public/index.html')));
 
 app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${PORT}`);
