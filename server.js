@@ -61,7 +61,7 @@ app.delete('/api/notes/:id', (req, res) => {
 });
 
 app.get('/*', (req,res) =>
-  res.sendFile(path.join('app/public/index.html')));
+  res.sendFile('app/public/index.html'));
 
 app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${PORT}`);
