@@ -14,6 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
+morgan('short')
+
+
 app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname + '/public/notes.html'));
 });
@@ -60,8 +63,13 @@ app.delete('/api/notes/:id', (req, res) => {
   res.send("Success!")
 });
 
-app.get('/*', (req,res) =>
-  res.sendFile(path.join(__dirname, '/public/index.html')));
+app.get('/*', (req, res) => {
+  try {
+    res.sendFile(path.join(__dirname, '/public/index.html'));
+  }catch(err){
+    console.error('error in /*: ', err);
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${PORT}`);
