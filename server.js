@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 app.get('/notes', (req, res) => {
-  res.sendFile(path.join('app/public/notes.html'));
+  res.sendFile('public/notes.html');
 });
 
 app.get('/api/notes', (req, res) => {
@@ -61,7 +61,7 @@ app.delete('/api/notes/:id', (req, res) => {
 });
 
 app.get('/*', (req,res) =>
-  res.sendFile('app/public/index.html'));
+  res.sendFile('public/index.html'));
 
 app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${PORT}`);
