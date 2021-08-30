@@ -3,12 +3,12 @@
 
 Note Taker application using Express Server
 #
-#How to run this app locally:#
- *Use this command in an integrated terminal to start the server:*
+How to run this app locally:
+  *Use this command in an integrated terminal to start the server:*
 ```bash
 node server.js
 ```
-  *...then in the default browser 
+  *...then in the default browser*
 ```bash
 index.html 
 ``` 
