@@ -3,12 +3,16 @@
 
 Note Taker application using Express Server
 #
-Use this command in an integrated terminal to start the server:
-
+#How to run this app locally:#
+ *Use this command in an integrated terminal to start the server:*
 ```bash
 node server.js
 ```
-  *...then open index.html in the default browser to view the deployed application.* 
+  *...then in the default browser 
+```bash
+index.html 
+``` 
+ 
 #
 This application uses the following NPM packages:
 
